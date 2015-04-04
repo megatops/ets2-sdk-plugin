@@ -24,17 +24,17 @@
     <ClCompile Include="src\sharedmemory.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\scs_sdk_1_2\include\common\scssdk_telemetry_common_channels.h" />
-    <ClInclude Include="..\scs_sdk_1_2\include\common\scssdk_telemetry_common_configs.h" />
-    <ClInclude Include="..\scs_sdk_1_2\include\common\scssdk_telemetry_trailer_common_channels.h" />
-    <ClInclude Include="..\scs_sdk_1_2\include\common\scssdk_telemetry_truck_common_channels.h" />
-    <ClInclude Include="..\scs_sdk_1_2\include\eurotrucks2\scssdk_eut2.h" />
-    <ClInclude Include="..\scs_sdk_1_2\include\eurotrucks2\scssdk_telemetry_eut2.h" />
-    <ClInclude Include="..\scs_sdk_1_2\include\scssdk.h" />
-    <ClInclude Include="..\scs_sdk_1_2\include\scssdk_telemetry.h" />
-    <ClInclude Include="..\scs_sdk_1_2\include\scssdk_telemetry_channel.h" />
-    <ClInclude Include="..\scs_sdk_1_2\include\scssdk_telemetry_event.h" />
-    <ClInclude Include="..\scs_sdk_1_2\include\scssdk_value.h" />
+    <ClInclude Include="..\scs_sdk_1_4\include\common\scssdk_telemetry_common_channels.h" />
+    <ClInclude Include="..\scs_sdk_1_4\include\common\scssdk_telemetry_common_configs.h" />
+    <ClInclude Include="..\scs_sdk_1_4\include\common\scssdk_telemetry_trailer_common_channels.h" />
+    <ClInclude Include="..\scs_sdk_1_4\include\common\scssdk_telemetry_truck_common_channels.h" />
+    <ClInclude Include="..\scs_sdk_1_4\include\eurotrucks2\scssdk_eut2.h" />
+    <ClInclude Include="..\scs_sdk_1_4\include\eurotrucks2\scssdk_telemetry_eut2.h" />
+    <ClInclude Include="..\scs_sdk_1_4\include\scssdk.h" />
+    <ClInclude Include="..\scs_sdk_1_4\include\scssdk_telemetry.h" />
+    <ClInclude Include="..\scs_sdk_1_4\include\scssdk_telemetry_channel.h" />
+    <ClInclude Include="..\scs_sdk_1_4\include\scssdk_telemetry_event.h" />
+    <ClInclude Include="..\scs_sdk_1_4\include\scssdk_value.h" />
     <ClInclude Include="inc\ets2-telemetry-common.hpp" />
     <ClInclude Include="inc\scs_config_handlers.hpp" />
     <ClInclude Include="inc\sharedmemory.hpp" />
@@ -110,6 +110,18 @@
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>ets2-telemetry-server.dll</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>ets2-telemetry-server.dll</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>ets2-telemetry-server.dll</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>ets2-telemetry-server.dll</TargetName>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
@@ -134,7 +146,8 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy "C:\Projects\Software\ets2-sdk-plugin\ets2-telemetry\Debug\ets2-telemetry.dll" "C:\Program Files (x86)\Steam\SteamApps\common\Euro Truck Simulator 2\bin\win_x86\plugins\ets2-telemetry.dll"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -159,7 +172,8 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy "C:\Projects\Software\ets2-sdk-plugin\ets2-telemetry\Debug\ets2-telemetry.dll" "C:\Program Files (x86)\Steam\SteamApps\common\Euro Truck Simulator 2\bin\win_x86\plugins\ets2-telemetry.dll"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -189,7 +203,7 @@
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>..\scs_sdk_1_4\include;inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;TELEMETRY_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;TELEMETRY_EXPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <PrecompiledHeader>
