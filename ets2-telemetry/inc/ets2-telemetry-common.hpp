@@ -7,9 +7,9 @@
 // - Shared memory map struct layout
 // - [..]
 
-#define ETS2_PLUGIN_REVID					3
+#define ETS2_PLUGIN_REVID					1000+4
 
-#define ETS2_PLUGIN_LOGGING_ON				0
+#define ETS2_PLUGIN_LOGGING_ON				_DEBUG
 #define ETS2_PLUGIN_LOGGING_SHAREDMEMORY	1
 #define ETS2_PLUGIN_FILENAME_PREFIX "C:\ets2telem_"
 

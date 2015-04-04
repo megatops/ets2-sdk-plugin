@@ -170,7 +170,7 @@ SCSAPI_VOID telemetry_configuration(const scs_event_t event, const void *const e
 				break;
 		}
 
-		fprintf(log_file, "\r\n");
+		fprintf(log_file, "\n");
 		
 		fflush(log_file);
 #endif
