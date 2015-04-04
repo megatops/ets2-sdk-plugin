@@ -17,7 +17,7 @@
 #define SDK_ENABLE_LOGGING
 #endif
 
-#define ETS2_PLUGIN_MMF_NAME TEXT("Local\\SimTelemetryETS2")
+#define ETS2_PLUGIN_MMF_NAME TEXT("Local\\Ets2TelemetryServer")
 #define ETS2_PLUGIN_MMF_SIZE (16*1024)
 
 #define TRUCK_STRING_OFFSET 15*1024

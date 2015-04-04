@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ets2-telemetry", "ets2-telemetry.vcxproj", "{A682E7F2-5D47-4223-9605-CC75FFCB813C}"
 EndProject
 Global
@@ -17,8 +19,8 @@ Global
 		{A682E7F2-5D47-4223-9605-CC75FFCB813C}.Debug|x64.Build.0 = Debug|x64
 		{A682E7F2-5D47-4223-9605-CC75FFCB813C}.Release|Win32.ActiveCfg = Release|Win32
 		{A682E7F2-5D47-4223-9605-CC75FFCB813C}.Release|Win32.Build.0 = Release|Win32
-		{A682E7F2-5D47-4223-9605-CC75FFCB813C}.Release|x64.ActiveCfg = Release|Win32
-		{A682E7F2-5D47-4223-9605-CC75FFCB813C}.Release|x64.Build.0 = Release|Win32
+		{A682E7F2-5D47-4223-9605-CC75FFCB813C}.Release|x64.ActiveCfg = Release|x64
+		{A682E7F2-5D47-4223-9605-CC75FFCB813C}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
