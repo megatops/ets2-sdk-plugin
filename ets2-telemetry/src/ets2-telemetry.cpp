@@ -117,27 +117,27 @@ SCSAPI_VOID telemetry_configuration(const scs_event_t event, const void *const e
 		switch(current->value.type)
 		{
 			case SCS_VALUE_TYPE_bool:
-				fprintf(log_file, "%c (bool)", ((current->value.value_bool.value) ? '1':'0'));
+				fprintf(log_file, "%c (bool[%i])", ((current->value.value_bool.value) ? '1' : '0'), current->index);
 				break;
 
 			case SCS_VALUE_TYPE_s32:
-				fprintf(log_file, "%l (s32)", current->value.value_s32.value);
+				fprintf(log_file, "%l (s32[%i])", current->value.value_s32.value, current->index);
 				break;
 
 			case SCS_VALUE_TYPE_u32:
-				fprintf(log_file, "%lu (u32)", current->value.value_u32.value);
+				fprintf(log_file, "%lu (u32[%i])", current->value.value_u32.value, current->index);
 				break;
 
 			case SCS_VALUE_TYPE_u64:
-				fprintf(log_file, "%lu (u64)", current->value.value_u64.value);
+				fprintf(log_file, "%lu (u64[%i])", current->value.value_u64.value, current->index);
 				break;
 
 			case SCS_VALUE_TYPE_float:
-				fprintf(log_file, "%f (float)", current->value.value_float.value);
+				fprintf(log_file, "%f (float[%i])", current->value.value_float.value, current->index);
 				break;
 
 			case SCS_VALUE_TYPE_double:
-				fprintf(log_file, "%f (double)", current->value.value_double.value);
+				fprintf(log_file, "%f (double[%i])", current->value.value_double.value, current->index);
 				break;
 
 				/*
@@ -166,7 +166,7 @@ SCSAPI_VOID telemetry_configuration(const scs_event_t event, const void *const e
 				break;
 
 			default:
-				fprintf(log_file, "???? (%d)", current->value.type);
+				fprintf(log_file, "???? (%d[%i])", current->value.type, current->index);
 				break;
 		}
 

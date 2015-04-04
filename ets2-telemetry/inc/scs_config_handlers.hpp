@@ -26,9 +26,32 @@ scsConfigHandle(TruckModel);
 
 // Technical vehicle info
 scsConfigHandle(FuelCapacity);
+scsConfigHandle(FuelWarningFactor);
+scsConfigHandle(AdblueCapacity);
+scsConfigHandle(AirPressureWarning);
+scsConfigHandle(AirPressureEmergency);
+scsConfigHandle(OilPressureWarning);
+scsConfigHandle(WaterTemperatureWarning);
+scsConfigHandle(BatteryVoltageWarning);
 scsConfigHandle(RpmLimit);
 scsConfigHandle(FGearCount);
 scsConfigHandle(RGearCount);
+scsConfigHandle(WheelCount);
+scsConfigHandle(WheelRadius);
+scsConfigHandle(RetarderStepCount);
+scsConfigHandle(CabinPosition);
+scsConfigHandle(HeadPosition);
+scsConfigHandle(HookPosition);
+scsConfigHandle(WheelPosition);
+scsConfigHandle(WheelSteerable);
+scsConfigHandle(WheelSimulated);
+scsConfigHandle(WheelPowered);
+scsConfigHandle(WheelLiftable);
+scsConfigHandle(SelectorCount);
+scsConfigHandle(SlotGear);
+scsConfigHandle(SlotHandlePosition);
+scsConfigHandle(SlotSelectors);
+scsConfigHandle(ShifterType);
 
 // Job info
 scsConfigHandle(JobIncome);

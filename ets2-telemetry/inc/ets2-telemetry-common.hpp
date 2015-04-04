@@ -7,7 +7,7 @@
 // - Shared memory map struct layout
 // - [..]
 
-#define ETS2_PLUGIN_REVID					1000+4
+#define ETS2_PLUGIN_REVID					4
 
 #define ETS2_PLUGIN_LOGGING_ON				_DEBUG
 #define ETS2_PLUGIN_LOGGING_SHAREDMEMORY	1
@@ -23,12 +23,13 @@
 #define TRUCK_STRING_OFFSET 15*1024
 #define TRAILER_STRING_OFFSET TRUCK_STRING_OFFSET+64
 
+#define GENERAL_STRING_SIZE 64
+
 typedef struct ets2TelemetryMap_s
 {
 	unsigned int time;
 	unsigned int paused;
-
-
+	
 	struct
 	{
 		unsigned int ets2_telemetry_plugin_revision;
@@ -100,16 +101,16 @@ typedef struct ets2TelemetryMap_s
 
 		// Trailer ID & display name
 		float trailerMass;
-		char trailerId[64];
-		char trailerName[64];
+		char trailerId[GENERAL_STRING_SIZE];
+		char trailerName[GENERAL_STRING_SIZE];
 		
 		// Job information
 		int jobIncome;
 		int time_abs_delivery;
-		char citySrc[64];
-		char cityDst[64];
-		char compSrc[64];
-		char compDst[64];
+		char citySrc[GENERAL_STRING_SIZE];
+		char cityDst[GENERAL_STRING_SIZE];
+		char compSrc[GENERAL_STRING_SIZE];
+		char compDst[GENERAL_STRING_SIZE];
 
 	} tel_rev2;	
 
@@ -170,12 +171,57 @@ typedef struct ets2TelemetryMap_s
 		float cruiseControlSpeed;
 
 		// General info about the truck etc;
-		char truckMake[64];
-		char truckMakeId[64];
-		char truckModel[64];
+		char truckMake[GENERAL_STRING_SIZE];
+		char truckMakeId[GENERAL_STRING_SIZE];
+		char truckModel[GENERAL_STRING_SIZE];
 
 
 	} tel_rev3;
+
+#define MAX_SHIFTER_TYPE_STRING_SIZE 16
+#define MAX_WHEEL_COUNT 20
+#define MAX_SLOT_COUNT 32
+
+	struct
+	{
+		float fuelWarningFactor;
+		float adblueCapacity;
+		float airPressureWarningValue;
+		float airPressureEmergencyValue;
+		float oilPressureWarningValue;
+		float waterTemperatureWarningValue;
+		float batteryVoltageWarningValue;
+
+		unsigned int retarderStepCount;
+		
+		float cabinPositionX;
+		float cabinPositionY;
+		float cabinPositionZ;
+		float headPositionX;
+		float headPositionY;
+		float headPositionZ;
+		float hookPositionX;
+		float hookPositionY;
+		float hookPositionZ;
+
+		unsigned int wheelCount;
+		float wheelPositionX[MAX_WHEEL_COUNT];
+		float wheelPositionY[MAX_WHEEL_COUNT];
+		float wheelPositionZ[MAX_WHEEL_COUNT];
+		bool wheelSteerable[MAX_WHEEL_COUNT];
+		bool wheelSimulated[MAX_WHEEL_COUNT];
+		float wheelRadius[MAX_WHEEL_COUNT];
+		bool wheelPowered[MAX_WHEEL_COUNT];
+		bool wheelLiftable[MAX_WHEEL_COUNT];
+
+		unsigned int selectorCount;
+		int slotGear[MAX_SLOT_COUNT];
+		unsigned int slotHandlePosition[MAX_SLOT_COUNT];
+		unsigned int slotSelectors[MAX_SLOT_COUNT];
+
+		char shifterType[MAX_SHIFTER_TYPE_STRING_SIZE]; // "arcade", "automatic", "manual", "hshifter"
+		
+	} tel_rev4;
 
 } ets2TelemetryMap_t;
 
