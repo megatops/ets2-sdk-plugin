@@ -63,8 +63,8 @@ typedef struct ets2TelemetryMap_s
 		// drivetrain essentials
 		int gear;
 		int gears;
-		int gearRanges;
-		int gearRangeActive;
+		int gearRanges;			//TODO:fix
+		int gearRangeActive;	//TODO:fix
 
 		float engineRpm;
 		float engineRpmMax;
@@ -86,7 +86,7 @@ typedef struct ets2TelemetryMap_s
 		float gameClutch;
 	
 		// truck & trailer
-		float truckWeight;
+		float truckWeight;		//TODO:fix
 		float trailerWeight;
 		
 		int modelType[2];
