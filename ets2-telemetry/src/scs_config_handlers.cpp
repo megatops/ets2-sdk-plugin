@@ -11,11 +11,11 @@ extern ets2TelemetryMap_t *telemPtr;
 
 const scsConfigHandler_t scsConfigTable[] = {
 	
-	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_brand, handleTruckMake },
 	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_brand_id, handleTruckMakeId },
-	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_name, handleTruckModel },
+	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_brand, handleTruckMake },	
 	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_id, handleId },
 	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_cargo_accessory_id, handleCargoId },
+	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_name, handleTruckModel },
 
 	// Truck technical info
 	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_fuel_capacity, handleFuelCapacity },
