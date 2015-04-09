@@ -138,8 +138,8 @@ typedef struct ets2TelemetryMap_s
 		bool lightsParking;
 		bool lightsBeamLow;
 		bool lightsBeamHigh;
-		bool lightsAuxFront;
-		bool lightsAuxRoof;
+		unsigned int lightsAuxFront;
+		unsigned int lightsAuxRoof;
 		bool lightsBeacon;
 		bool lightsBrake;
 		bool lightsReverse;
@@ -223,6 +223,9 @@ typedef struct ets2TelemetryMap_s
 
 		float localScale; // time scale
 		int nextRestStop; // in minutes
+		float trailerCoordinateX;
+		float trailerCoordinateY;
+		float trailerCoordinateZ;
 		
 	} tel_rev4;
 

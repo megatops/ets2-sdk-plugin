@@ -347,7 +347,7 @@ SCSAPI_RESULT scs_telemetry_init(const scs_u32_t version, const scs_telemetry_in
 	// Auxilliary stuff:
 	registerChannel(TRUCK_CHANNEL_retarder_level, u32, telemPtr->tel_rev3.retarderBrake);
 	registerChannel(TRUCK_CHANNEL_hshifter_slot, u32, telemPtr->tel_rev3.shifterSlot);
-	registerChannel(TRUCK_CHANNEL_hshifter_selector, bool, telemPtr->tel_rev3.shifterToggle);
+	registerChannel(TRUCK_CHANNEL_hshifter_selector, bool, telemPtr->tel_rev3.shifterToggle);//?????
 	
 	// Booleans
 	registerChannel(TRUCK_CHANNEL_wipers, bool, telemPtr->tel_rev3.wipers);
@@ -362,8 +362,8 @@ SCSAPI_RESULT scs_telemetry_init(const scs_u32_t version, const scs_telemetry_in
 	registerChannel(TRUCK_CHANNEL_light_parking, bool, telemPtr->tel_rev3.lightsParking);
 	registerChannel(TRUCK_CHANNEL_light_low_beam, bool, telemPtr->tel_rev3.lightsBeamLow);
 	registerChannel(TRUCK_CHANNEL_light_high_beam, bool, telemPtr->tel_rev3.lightsBeamHigh);
-	registerChannel(TRUCK_CHANNEL_light_aux_front, bool, telemPtr->tel_rev3.lightsAuxFront);
-	registerChannel(TRUCK_CHANNEL_light_aux_roof, bool, telemPtr->tel_rev3.lightsAuxRoof);
+	registerChannel(TRUCK_CHANNEL_light_aux_front, u32, telemPtr->tel_rev3.lightsAuxFront);
+	registerChannel(TRUCK_CHANNEL_light_aux_roof, u32, telemPtr->tel_rev3.lightsAuxRoof);
 	registerChannel(TRUCK_CHANNEL_light_beacon, bool, telemPtr->tel_rev3.lightsBeacon);
 	registerChannel(TRUCK_CHANNEL_light_brake, bool, telemPtr->tel_rev3.lightsBrake);
 	registerChannel(TRUCK_CHANNEL_light_reverse, bool, telemPtr->tel_rev3.lightsReverse);
@@ -397,6 +397,7 @@ SCSAPI_RESULT scs_telemetry_init(const scs_u32_t version, const scs_telemetry_in
 	// rev4
 	registerChannel(CHANNEL_local_scale, float, telemPtr->tel_rev4.localScale);
 	registerChannel(CHANNEL_next_rest_stop, s32, telemPtr->tel_rev4.nextRestStop);
+	registerChannel(TRAILER_CHANNEL_world_placement, dplacement, telemPtr->tel_rev4.trailerCoordinateX);
 
 	// Set the structure with defaults.
 
