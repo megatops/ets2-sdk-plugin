@@ -394,6 +394,10 @@ SCSAPI_RESULT scs_telemetry_init(const scs_u32_t version, const scs_telemetry_in
 	registerChannel(TRUCK_CHANNEL_odometer, float, telemPtr->tel_rev3.truckOdometer);
 	registerChannel(TRUCK_CHANNEL_cruise_control, float, telemPtr->tel_rev3.cruiseControlSpeed);
 
+	// rev4
+	registerChannel(CHANNEL_local_scale, float, telemPtr->tel_rev4.localScale);
+	registerChannel(CHANNEL_next_rest_stop, s32, telemPtr->tel_rev4.nextRestStop);
+
 	// Set the structure with defaults.
 
 	timestamp = static_cast<scs_timestamp_t>(0);

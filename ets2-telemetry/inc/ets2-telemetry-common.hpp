@@ -220,6 +220,9 @@ typedef struct ets2TelemetryMap_s
 		unsigned int slotSelectors[MAX_SLOT_COUNT];
 
 		char shifterType[MAX_SHIFTER_TYPE_STRING_SIZE]; // "arcade", "automatic", "manual", "hshifter"
+
+		float localScale; // time scale
+		int nextRestStop; // in minutes
 		
 	} tel_rev4;
 
