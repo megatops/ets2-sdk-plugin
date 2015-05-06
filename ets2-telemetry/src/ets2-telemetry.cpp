@@ -327,7 +327,7 @@ SCSAPI_RESULT scs_telemetry_init(const scs_u32_t version, const scs_telemetry_in
 	registerChannel(TRUCK_CHANNEL_world_placement, dplacement, telemPtr->tel_rev1.coordinateX);
 
 	registerChannel(TRUCK_CHANNEL_engine_gear, s32, telemPtr->tel_rev1.gear);
-
+	
 	registerChannel(TRUCK_CHANNEL_engine_rpm, float, telemPtr->tel_rev1.engineRpm);
 
 	registerChannel(TRUCK_CHANNEL_fuel, float, telemPtr->tel_rev1.fuel);
@@ -398,6 +398,10 @@ SCSAPI_RESULT scs_telemetry_init(const scs_u32_t version, const scs_telemetry_in
 	registerChannel(CHANNEL_local_scale, float, telemPtr->tel_rev4.localScale);
 	registerChannel(CHANNEL_next_rest_stop, s32, telemPtr->tel_rev4.nextRestStop);
 	registerChannel(TRAILER_CHANNEL_world_placement, dplacement, telemPtr->tel_rev4.trailerCoordinateX);
+	registerChannel(TRUCK_CHANNEL_displayed_gear, s32, telemPtr->tel_rev4.displayedGear);
+	registerChannel(TRUCK_CHANNEL_navigation_distance, float, telemPtr->tel_rev4.navigationDistance);
+	registerChannel(TRUCK_CHANNEL_navigation_time, float, telemPtr->tel_rev4.navigationTime);
+	registerChannel(TRUCK_CHANNEL_navigation_speed_limit, float, telemPtr->tel_rev4.navigationSpeedLimit);
 
 	// Set the structure with defaults.
 

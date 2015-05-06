@@ -226,7 +226,15 @@ typedef struct ets2TelemetryMap_s
 		float trailerCoordinateX;
 		float trailerCoordinateY;
 		float trailerCoordinateZ;
-		unsigned int padding1;
+		float trailerRotationX;
+		float trailerRotationY;
+		float trailerRotationZ;
+		//unsigned int padding1;
+
+		int displayedGear;
+		float navigationDistance;
+		float navigationTime;
+		float navigationSpeedLimit;
 		
 	} tel_rev4;
 
