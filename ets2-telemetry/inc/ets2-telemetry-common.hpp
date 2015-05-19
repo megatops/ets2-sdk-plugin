@@ -203,17 +203,7 @@ typedef struct ets2TelemetryMap_s
 		float hookPositionX;
 		float hookPositionY;
 		float hookPositionZ;
-
-		unsigned int wheelCount;
-		float wheelPositionX[MAX_WHEEL_COUNT];
-		float wheelPositionY[MAX_WHEEL_COUNT];
-		float wheelPositionZ[MAX_WHEEL_COUNT];
-		bool wheelSteerable[MAX_WHEEL_COUNT];
-		bool wheelSimulated[MAX_WHEEL_COUNT];
-		float wheelRadius[MAX_WHEEL_COUNT];
-		bool wheelPowered[MAX_WHEEL_COUNT];
-		bool wheelLiftable[MAX_WHEEL_COUNT];
-
+		
 		unsigned int selectorCount;
 		int slotGear[MAX_SLOT_COUNT];
 		unsigned int slotHandlePosition[MAX_SLOT_COUNT];
@@ -235,6 +225,24 @@ typedef struct ets2TelemetryMap_s
 		float navigationDistance;
 		float navigationTime;
 		float navigationSpeedLimit;
+
+		/*
+		unsigned char truckWheelCount;
+		unsigned char trailerWheelCount;
+
+		unsigned int wheelCount;
+		float wheelPositionX[MAX_WHEEL_COUNT];
+		float wheelPositionY[MAX_WHEEL_COUNT];
+		float wheelPositionZ[MAX_WHEEL_COUNT];
+		bool wheelSteerable[MAX_WHEEL_COUNT];
+		bool wheelSimulated[MAX_WHEEL_COUNT];
+		float wheelRadius[MAX_WHEEL_COUNT];
+		bool wheelPowered[MAX_WHEEL_COUNT];
+		bool wheelLiftable[MAX_WHEEL_COUNT];
+
+		float wheelRotation[MAX_WHEEL_COUNT];
+		float wheelAngularVelocity[MAX_WHEEL_COUNT];
+		unsigned int wheelSubstance[MAX_WHEEL_COUNT];*/
 		
 	} tel_rev4;
 
