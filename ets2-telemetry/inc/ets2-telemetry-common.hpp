@@ -204,11 +204,6 @@ typedef struct ets2TelemetryMap_s
 		float hookPositionY;
 		float hookPositionZ;
 		
-		unsigned int selectorCount;
-		int slotGear[MAX_SLOT_COUNT];
-		unsigned int slotHandlePosition[MAX_SLOT_COUNT];
-		unsigned int slotSelectors[MAX_SLOT_COUNT];
-
 		char shifterType[MAX_SHIFTER_TYPE_STRING_SIZE]; // "arcade", "automatic", "manual", "hshifter"
 
 		float localScale; // time scale
@@ -219,8 +214,7 @@ typedef struct ets2TelemetryMap_s
 		float trailerRotationX;
 		float trailerRotationY;
 		float trailerRotationZ;
-		//unsigned int padding1;
-
+		
 		int displayedGear;
 		float navigationDistance;
 		float navigationTime;
@@ -242,7 +236,13 @@ typedef struct ets2TelemetryMap_s
 
 		float wheelRotation[MAX_WHEEL_COUNT];
 		float wheelAngularVelocity[MAX_WHEEL_COUNT];
-		unsigned int wheelSubstance[MAX_WHEEL_COUNT];*/
+		unsigned int wheelSubstance[MAX_WHEEL_COUNT];
+		
+		unsigned int selectorCount;
+		int slotGear[MAX_SLOT_COUNT];
+		unsigned int slotHandlePosition[MAX_SLOT_COUNT];
+		unsigned int slotSelectors[MAX_SLOT_COUNT];
+		*/
 		
 	} tel_rev4;
 

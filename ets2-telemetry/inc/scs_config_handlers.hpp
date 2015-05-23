@@ -47,10 +47,10 @@ scsConfigHandle(WheelSteerable);
 scsConfigHandle(WheelSimulated);
 scsConfigHandle(WheelPowered);
 scsConfigHandle(WheelLiftable);*/
-scsConfigHandle(SelectorCount);
+/*scsConfigHandle(SelectorCount);
 scsConfigHandle(SlotGear);
 scsConfigHandle(SlotHandlePosition);
-scsConfigHandle(SlotSelectors);
+scsConfigHandle(SlotSelectors);*/
 scsConfigHandle(ShifterType);
 
 // Job info

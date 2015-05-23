@@ -39,11 +39,11 @@ const scsConfigHandler_t scsConfigTable[] = {
 	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_wheel_simulated, handleWheelSimulated },
 	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_wheel_radius, handleWheelRadius },
 	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_wheel_powered, handleWheelPowered },
-	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_wheel_liftable, handleWheelLiftable },*/
+	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_wheel_liftable, handleWheelLiftable },
 	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_selector_count, handleSelectorCount },
 	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_slot_gear, handleSlotGear },
 	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_slot_handle_position, handleSlotHandlePosition },
-	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_slot_selectors, handleSlotSelectors },
+	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_slot_selectors, handleSlotSelectors },*/
 	{ SCS_TELEMETRY_CONFIG_ATTRIBUTE_shifter_type, handleShifterType },
 
 	// Job information
@@ -284,7 +284,7 @@ scsConfigHandle(WheelPowered) {
 scsConfigHandle(WheelLiftable) {
 	if (current->index >= MAX_WHEEL_COUNT) return;
 	telemPtr->tel_rev4.wheelLiftable[current->index] = current->value.value_bool.value;
-}*/
+}
 
 scsConfigHandle(SelectorCount) { telemPtr->tel_rev4.selectorCount = current->value.value_u32.value; }
 scsConfigHandle(SlotGear) {
@@ -298,7 +298,8 @@ scsConfigHandle(SlotHandlePosition) {
 scsConfigHandle(SlotSelectors) {
 	if (current->index >= MAX_SLOT_COUNT) return;
 	telemPtr->tel_rev4.slotSelectors[current->index] = current->value.value_u32.value;
-}
+}*/
+
 scsConfigHandle(ShifterType) {	
 	strncpy(telemPtr->tel_rev4.shifterType, current->value.value_string.value, MAX_SHIFTER_TYPE_STRING_SIZE);
 }
