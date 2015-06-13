@@ -7,7 +7,7 @@
 // - Shared memory map struct layout
 // - [..]
 
-#define ETS2_PLUGIN_REVID					4
+#define ETS2_PLUGIN_REVID					5
 
 #define ETS2_PLUGIN_LOGGING_ON				_DEBUG
 #define ETS2_PLUGIN_LOGGING_SHAREDMEMORY	1
@@ -42,7 +42,7 @@ typedef struct ets2TelemetryMap_s
 	// Replaced/new variabeles should be added in seperate structs
 	struct
 	{
-		bool engine_enabled;
+		bool engine_enabled;	// deprecated and removed since rev 5
 		bool trailer_attached;
 
 		// vehicle dynamics
