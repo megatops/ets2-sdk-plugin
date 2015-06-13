@@ -337,7 +337,6 @@ SCSAPI_RESULT scs_telemetry_init(const scs_u32_t version, const scs_telemetry_in
 	}
 	
 	/*** REGISTER ALL TELEMETRY CHANNELS TO OUR SHARED MEMORY MAP ***/
-	registerChannel(TRUCK_CHANNEL_electric_enabled, bool, telemPtr->tel_rev1.engine_enabled);
 	registerChannel(CHANNEL_game_time, u32, telemPtr->tel_rev2.time_abs);
 	registerChannel(TRAILER_CHANNEL_connected, bool, telemPtr->tel_rev1.trailer_attached);
 
