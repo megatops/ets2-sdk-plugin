@@ -6,7 +6,7 @@ This is a fork of [the original telemetry plugin](https://github.com/nlhans/ets2
 
 ### Revision 5 (13th June 2015)
 
-- removed duplicated engine-enabled property which was a duplicate for electric-enabled property causing it not to work properly
+- removed duplicated engine\_enabled property which was a duplicate for electric\_enabled property causing it not to work properly
 
 ### Revision 4 (23th May 2015)
 
