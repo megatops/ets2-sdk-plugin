@@ -365,7 +365,7 @@ SCSAPI_RESULT scs_telemetry_init(const scs_u32_t version, const scs_telemetry_in
 	// Auxilliary stuff:
 	registerChannel(TRUCK_CHANNEL_retarder_level, u32, telemPtr->tel_rev3.retarderBrake);
 	registerChannel(TRUCK_CHANNEL_hshifter_slot, u32, telemPtr->tel_rev3.shifterSlot);
-	registerChannel(TRUCK_CHANNEL_hshifter_selector, bool, telemPtr->tel_rev3.shifterToggle);//?????
+	//registerChannel(TRUCK_CHANNEL_hshifter_selector, bool, telemPtr->tel_rev3.shifterToggle);//?????
 	
 	// Booleans
 	registerChannel(TRUCK_CHANNEL_wipers, bool, telemPtr->tel_rev3.wipers);
