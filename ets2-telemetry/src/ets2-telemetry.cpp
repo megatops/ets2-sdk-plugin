@@ -88,6 +88,28 @@ SCSAPI_VOID telemetry_frame_start(const scs_event_t UNUSED(event), const void *c
 		// Do a non-convential periodic update of this field:
 		telemPtr->tel_rev3.cruiseControl = (telemPtr->tel_rev3.cruiseControlSpeed > 0) ? true : false;
 
+        // Check if job is finished and clean job related information 
+        if (telemPtr->tel_rev2.jobIncome > 0 && telemPtr->tel_rev1.trailer_attached == false &&            
+            telemPtr->tel_rev4.navigationDistance < 500.0f && telemPtr->tel_rev4.navigationDistance > 0.0f)
+        {
+            // if was carrying cargo and not anymore with navigation distance close to zero (< 500m) 
+            // then we assume the job has finished
+                        
+            telemPtr->tel_rev2.jobIncome = 0;
+            telemPtr->tel_rev2.time_abs_delivery = 0;
+            telemPtr->tel_rev2.trailerMass = 0;
+            telemPtr->tel_rev3.wearTrailer = 0;
+
+            memset(telemPtr->tel_rev2.trailerId, 0, GENERAL_STRING_SIZE);
+            memset(telemPtr->tel_rev2.trailerName, 0, GENERAL_STRING_SIZE);
+
+            memset(telemPtr->tel_rev2.citySrc, 0, GENERAL_STRING_SIZE);
+            memset(telemPtr->tel_rev2.cityDst, 0, GENERAL_STRING_SIZE);
+            memset(telemPtr->tel_rev2.compSrc, 0, GENERAL_STRING_SIZE);
+            memset(telemPtr->tel_rev2.compDst, 0, GENERAL_STRING_SIZE);
+            
+        }
+
 	}
 
 }
