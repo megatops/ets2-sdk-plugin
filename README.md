@@ -4,6 +4,10 @@ This is a fork of [the original telemetry plugin](https://github.com/nlhans/ets2
  
 # Version history
 
+### Revision 7 (12th March 2016)
+
+- fixed job information reset when job is done
+
 ### Revision 5 (13th June 2015)
 
 - removed duplicated engine\_enabled property which was a duplicate for electric\_enabled property causing it not to work properly
