@@ -53,6 +53,8 @@ scs_timestamp_t timestamp;
 FILE *log_file = NULL;
 #endif
 
+static bool onJob = false;
+static int onJobSyncCounter = 0;
 
 SCSAPI_VOID telemetry_frame_start(const scs_event_t UNUSED(event), const void *const event_info, const scs_context_t UNUSED(context))
 {
@@ -89,25 +91,42 @@ SCSAPI_VOID telemetry_frame_start(const scs_event_t UNUSED(event), const void *c
 		telemPtr->tel_rev3.cruiseControl = (telemPtr->tel_rev3.cruiseControlSpeed > 0) ? true : false;
 
         // Check if job is finished and clean job related information 
-        if (telemPtr->tel_rev2.jobIncome > 0 && telemPtr->tel_rev1.trailer_attached == false &&            
+        if (onJob && 
+            telemPtr->tel_rev2.jobIncome > 0 && !telemPtr->tel_rev1.trailer_attached &&
             telemPtr->tel_rev4.navigationDistance < 500.0f && telemPtr->tel_rev4.navigationDistance > 0.0f)
         {
             // if was carrying cargo and not anymore with navigation distance close to zero (< 500m) 
             // then we assume the job has finished
-                        
-            telemPtr->tel_rev2.jobIncome = 0;
-            telemPtr->tel_rev2.time_abs_delivery = 0;
-            telemPtr->tel_rev2.trailerMass = 0;
-            telemPtr->tel_rev3.wearTrailer = 0;
 
-            memset(telemPtr->tel_rev2.trailerId, 0, GENERAL_STRING_SIZE);
-            memset(telemPtr->tel_rev2.trailerName, 0, GENERAL_STRING_SIZE);
+            // since not all telemetry properties are updated at the same time
+            // we have to wait until job related info is in sync (~1 sec (30 frames) seems to be enough)
+            if (onJobSyncCounter++ > 30)
+            {
+                telemPtr->tel_rev2.jobIncome = 0;
+                telemPtr->tel_rev2.time_abs_delivery = 0;
+                telemPtr->tel_rev2.trailerMass = 0;
+                telemPtr->tel_rev3.wearTrailer = 0;
 
-            memset(telemPtr->tel_rev2.citySrc, 0, GENERAL_STRING_SIZE);
-            memset(telemPtr->tel_rev2.cityDst, 0, GENERAL_STRING_SIZE);
-            memset(telemPtr->tel_rev2.compSrc, 0, GENERAL_STRING_SIZE);
-            memset(telemPtr->tel_rev2.compDst, 0, GENERAL_STRING_SIZE);
-            
+                memset(telemPtr->tel_rev2.trailerId, 0, GENERAL_STRING_SIZE);
+                memset(telemPtr->tel_rev2.trailerName, 0, GENERAL_STRING_SIZE);
+
+                memset(telemPtr->tel_rev2.citySrc, 0, GENERAL_STRING_SIZE);
+                memset(telemPtr->tel_rev2.cityDst, 0, GENERAL_STRING_SIZE);
+                memset(telemPtr->tel_rev2.compSrc, 0, GENERAL_STRING_SIZE);
+                memset(telemPtr->tel_rev2.compDst, 0, GENERAL_STRING_SIZE);
+
+                onJob = false;
+                onJobSyncCounter = 0;
+            }                      
+
+        }
+        else if (!onJob && telemPtr->tel_rev2.jobIncome > 0 && telemPtr->tel_rev1.trailer_attached)
+        {
+            if (onJobSyncCounter++ > 30)
+            {
+                onJob = true;
+                onJobSyncCounter = 0;
+            }
         }
 
 	}
