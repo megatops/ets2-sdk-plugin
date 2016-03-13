@@ -4,7 +4,7 @@ This is a fork of [the original telemetry plugin](https://github.com/nlhans/ets2
  
 # Version history
 
-### Revision 7 (12th March 2016)
+### Revision 8 (13th March 2016)
 
 - fixed job information reset when job is done
 
