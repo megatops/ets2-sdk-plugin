@@ -162,6 +162,7 @@ scsConfigHandle(JobIncome)
 	if (telemPtr)
 	{
 		telemPtr->tel_rev2.jobIncome = current->value.value_u64.value;
+        job_buffer.jobIncome = current->value.value_u64.value;
 	}
 }
 
@@ -170,6 +171,7 @@ scsConfigHandle(JobDeadline)
 	if (telemPtr)
 	{
 		telemPtr->tel_rev2.time_abs_delivery = current->value.value_u32.value;
+        job_buffer.time_abs_delivery = current->value.value_u32.value;
 	}
 }
 
@@ -178,6 +180,7 @@ scsConfigHandle(TrailerMass)
 	if (telemPtr)
 	{
 		telemPtr->tel_rev2.trailerMass = current->value.value_float.value;
+        job_buffer.trailerMass = current->value.value_float.value;
 	}
 }
 
@@ -186,6 +189,7 @@ scsConfigHandle(TrailerId)
 	if (telemPtr)
 	{
 		strncpy(telemPtr->tel_rev2.trailerId, current->value.value_string.value, GENERAL_STRING_SIZE);
+        strncpy(job_buffer.trailerId, current->value.value_string.value, GENERAL_STRING_SIZE);
 	}
 }
 
@@ -194,6 +198,7 @@ scsConfigHandle(TrailerName)
 	if (telemPtr)
 	{
 		strncpy(telemPtr->tel_rev2.trailerName, current->value.value_string.value, GENERAL_STRING_SIZE);
+        strncpy(job_buffer.trailerName, current->value.value_string.value, GENERAL_STRING_SIZE);
 	}
 }
 
@@ -202,6 +207,7 @@ scsConfigHandle(CitySrc)
 	if (telemPtr)
 	{
 		strncpy(telemPtr->tel_rev2.citySrc, current->value.value_string.value, GENERAL_STRING_SIZE);
+        strncpy(job_buffer.citySrc, current->value.value_string.value, GENERAL_STRING_SIZE);
 	}
 }
 
@@ -210,6 +216,7 @@ scsConfigHandle(CityDst)
 	if (telemPtr)
 	{
 		strncpy(telemPtr->tel_rev2.cityDst, current->value.value_string.value, GENERAL_STRING_SIZE);
+        strncpy(job_buffer.cityDst, current->value.value_string.value, GENERAL_STRING_SIZE);
 	}
 }
 
@@ -218,6 +225,7 @@ scsConfigHandle(CompSrc)
 	if (telemPtr)
 	{
 		strncpy(telemPtr->tel_rev2.compSrc, current->value.value_string.value, GENERAL_STRING_SIZE);
+        strncpy(job_buffer.compSrc, current->value.value_string.value, GENERAL_STRING_SIZE);
 	}
 }
 
@@ -226,6 +234,7 @@ scsConfigHandle(CompDst)
 	if (telemPtr)
 	{
 		strncpy(telemPtr->tel_rev2.compDst, current->value.value_string.value, GENERAL_STRING_SIZE);
+        strncpy(job_buffer.compDst, current->value.value_string.value, GENERAL_STRING_SIZE);
 	}
 }
 

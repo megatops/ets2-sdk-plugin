@@ -54,6 +54,7 @@ FILE *log_file = NULL;
 #endif
 
 static bool onJob = false;
+job_buffer_struct job_buffer;
 
 SCSAPI_VOID telemetry_frame_start(const scs_event_t UNUSED(event), const void *const event_info, const scs_context_t UNUSED(context))
 {
@@ -113,8 +114,21 @@ SCSAPI_VOID telemetry_frame_start(const scs_event_t UNUSED(event), const void *c
 
             onJob = false;
         }
-        else if (!onJob && telemPtr->tel_rev2.jobIncome > 0 && telemPtr->tel_rev1.trailer_attached)
-        {            
+        else if (!onJob && telemPtr->tel_rev1.trailer_attached)
+        {         
+            telemPtr->tel_rev2.jobIncome = job_buffer.jobIncome;
+            telemPtr->tel_rev2.time_abs_delivery = job_buffer.time_abs_delivery;
+            telemPtr->tel_rev2.trailerMass = job_buffer.trailerMass;
+            telemPtr->tel_rev3.wearTrailer = job_buffer.wearTrailer;
+            
+            strncpy(telemPtr->tel_rev2.trailerId, job_buffer.trailerId, GENERAL_STRING_SIZE);
+            strncpy(telemPtr->tel_rev2.trailerName, job_buffer.trailerName, GENERAL_STRING_SIZE);
+
+            strncpy(telemPtr->tel_rev2.citySrc, job_buffer.citySrc, GENERAL_STRING_SIZE);
+            strncpy(telemPtr->tel_rev2.cityDst, job_buffer.cityDst, GENERAL_STRING_SIZE);
+            strncpy(telemPtr->tel_rev2.compSrc, job_buffer.compSrc, GENERAL_STRING_SIZE);
+            strncpy(telemPtr->tel_rev2.compDst, job_buffer.compDst, GENERAL_STRING_SIZE);
+
             onJob = true;
         }
 
