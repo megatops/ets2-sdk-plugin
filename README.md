@@ -4,6 +4,10 @@ This is a fork of [the original telemetry plugin](https://github.com/nlhans/ets2
  
 # Version history
 
+### Revision 10 (19th June 2016)
+
+- implemented job information buffer to avoid unexpected reset when trailer is detached on the way
+
 ### Revision 9 (28th March 2016)
 
 - refactored job information reset, should work a bit more stable
