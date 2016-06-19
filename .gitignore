@@ -193,3 +193,4 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 ets2-telemetry/ets2-telemetry.VC.opendb
+ets2-telemetry/ets2-telemetry.VC.db
